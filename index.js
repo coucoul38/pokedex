@@ -2,9 +2,11 @@ const express = require("express");
 const dbo = require("./db/db");
 const app = express();
 const port = 4444;
+const bodyParser = require('body-parser');
 
 dbo.connectToServer();
 
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", function (req, res) {
   res.send("Hello Gorld!");
@@ -12,6 +14,13 @@ app.get("/", function (req, res) {
 
 app.listen(port, function () {
   console.log(`App listening on port ${port}!`);
+});
+
+app.post('/pokedex/insert', (req, res) => {
+  const body = req.body;
+  console.log('Got body:', body);
+  //on code ensuite l'insertion dans mongoDB, lisez la doc hehe !!
+  res.json(body);
 });
 
 //Get pokemons from db
