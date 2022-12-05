@@ -4,6 +4,7 @@ const app = express();
 const port = 4444;
 const bodyParser = require('body-parser');
 const db = require("./db/db");
+const { ConnectionCheckOutFailedEvent, ConnectionPoolReadyEvent } = require("mongodb");
 
 dbo.connectToServer();
 
@@ -50,8 +51,8 @@ app.post('/pokedex/delete', (req, res) => {
   dbConnect.collection("pokemons").deleteOne( myQuery, function (err, obj) {
     if (err) throw err;
     console.log("Deleted pokemon");
-    //db.close();
   });
+  connection.end();
 });
 
 
