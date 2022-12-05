@@ -3,7 +3,6 @@ const dbo = require("./db/db");
 const app = express();
 const port = 4444;
 const bodyParser = require('body-parser');
-const db = require("./db/db");
 
 dbo.connectToServer();
 
@@ -24,12 +23,17 @@ app.post('/pokedex/insert', (req, res) => {
   const name = req.query.name;
   const no = req.query.no;
   const img = req.query.img;
-  console.log('name: '+name);
+  /*console.log('name: '+name);
   console.log('no: '+no);
-  console.log('img: '+img);
+  console.log('img: '+img);*/
 
-  db.pokemons.insert({ name: name, no: no, img: img });
-  console.log("Inserted into db");
+  input = {"name": name, "no": no, "img": img};
+  let obj = JSON.stringify(input);
+  console.log('Object to send: ',obj);
+
+  //dbo.collection("pokemons").insert(obj);
+  
+  
   //on code ensuite l'insertion dans mongoDB, lisez la doc hehe !!
   res.json(body);
 });
