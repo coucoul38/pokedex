@@ -42,22 +42,15 @@ app.post('/pokedex/delete', (req, res) => {
   const body = req.body;
   console.log('Got body: ', body);
   
-  const no = req.query.no;
-  console.log("No: ", no);
   const dbConnect = dbo.getDb();
 
-  dbConnect
-    .collection("pokemons")
-    .find({name:{$eq:'Dedenne'}}) // permet de filtrer les résultats
-    .toArray(function (err, result){
-      if (err) {
-        res.status(400).send("Error fetching pokemon!");
-      } else {
-        name = (result.name);
-        res.json(result);
-        console.log("Deleted ", result.name);
-        //dbConnect.collection("pokemons").deleteOne(result);
-      }
+  const no = req.query.no;
+  console.log("No: ", no);
+  var myQuery = { no: no};
+  dbConnect.collection("pokemons").deleteOne( myQuery, function (err, obj) {
+    if (err) throw err;
+    console.log("Deleted pokemon");
+    //db.close();
   });
 });
 
