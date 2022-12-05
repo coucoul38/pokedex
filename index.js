@@ -3,6 +3,7 @@ const dbo = require("./db/db");
 const app = express();
 const port = 4444;
 const bodyParser = require('body-parser');
+const db = require("./db/db");
 
 dbo.connectToServer();
 
@@ -42,15 +43,22 @@ app.post('/pokedex/delete', (req, res) => {
   console.log('Got body: ', body);
   
   const no = req.query.no;
-
-  let input = {"name": name, "no": no, "img": img};
-  console.log('Object to send: ',input);
-
+  console.log("No: ", no);
   const dbConnect = dbo.getDb();
+
   dbConnect
     .collection("pokemons")
-    .insertOne(input);
-  res.json(req.body.name)
+    .find({name:{$eq:'Dedenne'}}) // permet de filtrer les résultats
+    .toArray(function (err, result){
+      if (err) {
+        res.status(400).send("Error fetching pokemon!");
+      } else {
+        name = (result.name);
+        res.json(result);
+        console.log("Deleted ", result.name);
+        //dbConnect.collection("pokemons").deleteOne(result);
+      }
+  });
 });
 
 
@@ -59,10 +67,12 @@ app.get("/pokedex/pokemons", function (req, res) {
   //connexion à la db mongo db
   const dbConnect = dbo.getDb();
   //premier test permettant de récupérer mes pokemons !
+  var sortOrder = { no : 1 };
   dbConnect
     .collection("pokemons")
     .find({}) // permet de filtrer les résultats
     /*.limit(50) // pourrait permettre de limiter le nombre de résultats */
+    .sort(sortOrder)
     .toArray(function (err, result){
       if (err) {
         res.status(400).send("Error fetching pokemons!");
