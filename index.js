@@ -23,13 +23,21 @@ app.post('/pokedex/insert', (req, res) => {
   const name = req.query.name;
   const no = req.query.no;
   const img = req.query.img;
-  /*console.log('name: '+name);
-  console.log('no: '+no);
-  console.log('img: '+img);*/
 
   input = {"name": name, "no": no, "img": img};
   let obj = JSON.stringify(input);
   console.log('Object to send: ',obj);
+
+  const dbConnect = dbo.getDb();
+  dbConnect
+    .collection("pokemons")
+    .insertOne(obj);
+  res.json(req.body.name)
+  /*console.log('name: '+name);
+  console.log('no: '+no);
+  console.log('img: '+img);*/
+
+  
 
   //dbo.collection("pokemons").insert(obj);
   
