@@ -101,3 +101,28 @@ app.get("/unlocked/list", function (req, res) {
       }
     });
 });
+
+//----------Move a pokemon from the Pokedex to unlocked----------
+app.post('/pokedex/insert', (req, res) => {
+  const dbConnect = dbo.getDb();
+
+  //get the number of the pokemon to unlock
+  const no = req.query.no;
+
+  //find the pokemon in the pokedex
+  let myQuery = {"no": no};
+  dbConnect
+    .collection("pokemons")
+    .find(myQuery)
+    .toArray(function (err, result) {
+      pkmn = result[0];
+      console.log("result.name: ",pkmn);
+    });
+  
+  console.log('Object to send: ',pkmn);
+
+  dbConnect
+    .collection("pokemons")
+    .insertOne(input);
+  res.json(req.body.name)
+});
