@@ -53,8 +53,14 @@ app.post('/pokedex/insert', (req, res) => {
 
   dbConnect
     .collection("pokemons")
-    .insertOne(input);
-  res.send("Added new pokemon :"+input)
+    .insertOne(input, function(err) {
+      if (err) {
+        res.status(400).send("Couldn't add pokemon")
+      } else {
+        //return data of the newly added pokemon
+        res.send(input)
+      }
+    });
 });
 
 //----------Delete a pokemon from the Pokedex----------
@@ -122,7 +128,7 @@ app.post('/unlocked/insert', (req, res) => {
       if(err){
         res.status(400).send("Couldnt unlock pokemon")
       } else {
-        res.status(200).send("Unlocked pokemon "+pkmn.name)
+        res.status(200).send("Unlocked "+pkmn.name)
       }
     });
   });
