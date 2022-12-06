@@ -52,7 +52,7 @@ app.post('/pokedex/delete', (req, res) => {
     if (err) throw err;
     console.log("Deleted pokemon");
   });
-  connection.end();
+  //connection.end();
 });
 
 
