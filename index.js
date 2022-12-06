@@ -18,6 +18,27 @@ app.listen(port, function () {
   console.log(`App listening on port ${port}!`);
 });
 
+//**********POKEDEX*************//
+//Get pokemons from db
+app.get("/pokemons/list", function (req, res) {
+  //connexion à la db mongo db
+  const dbConnect = dbo.getDb();
+  //premier test permettant de récupérer mes pokemons !
+  var sortOrder = { no : 1 };
+  dbConnect
+    .collection("pokemons")
+    .find({}) // permet de filtrer les résultats
+    /*.limit(50) // pourrait permettre de limiter le nombre de résultats */
+    .sort(sortOrder)
+    .toArray(function (err, result){
+      if (err) {
+        res.status(400).send("Error fetching pokemons!");
+      } else {
+        res.json(result);
+      }
+    });
+});
+
 //----------Add a pokemon to the Pokedex----------
 app.post('/pokedex/insert', (req, res) => {
   const body = req.body;
@@ -38,7 +59,6 @@ app.post('/pokedex/insert', (req, res) => {
 });
 
 //----------Delete a pokemon from the Pokedex----------
-
 app.post('/pokedex/delete', (req, res) => {
   const body = req.body;
   console.log('Got body: ', body);
@@ -61,14 +81,15 @@ app.post('/pokedex/delete', (req, res) => {
 });
 
 
-//Get pokemons from db
-app.get("/pokedex/pokemons", function (req, res) {
+//**********POKEMONS*************//
+//----------Get pokémon---//
+app.get("/unlocked/list", function (req, res) {
   //connexion à la db mongo db
   const dbConnect = dbo.getDb();
   //premier test permettant de récupérer mes pokemons !
   var sortOrder = { no : 1 };
   dbConnect
-    .collection("pokemons")
+    .collection("unlocked")
     .find({}) // permet de filtrer les résultats
     /*.limit(50) // pourrait permettre de limiter le nombre de résultats */
     .sort(sortOrder)
