@@ -41,42 +41,40 @@ app.get("/pokemons/list", function (req, res) {
 
 //----------Add a pokemon to the Pokedex----------
 app.post('/pokedex/insert', (req, res) => {
+  const dbConnect = dbo.getDb();
   const body = req.body;
   console.log('Got body: ', body);
 
   const name = req.query.name;
   const no = req.query.no;
   let input = {"name": name, "no": no, "img": 'https://img.pokemondb.net/sprites/sword-shield/normal/'+name.toLowerCase()+'.png'};
-  
+
   console.log('Object to send: ',input);
 
-  const dbConnect = dbo.getDb();
   dbConnect
     .collection("pokemons")
     .insertOne(input);
-  res.json(req.body.name)
+  res.send("Added new pokemon :"+input)
 });
 
 //----------Delete a pokemon from the Pokedex----------
 app.post('/pokedex/delete', (req, res) => {
-  const body = req.body;
-  console.log('Got body: ', body);
-  
   const dbConnect = dbo.getDb();
 
   const no = req.query.no;
-  console.log("No: ", no);
-  var myQuery = { no: no};
+  console.log("Deleting No: ", no);
+  var myQuery = {no: no};
 
+  
+  //find the pokemon name
   dbConnect.collection("pokemons").find(myQuery).toArray(function (err, result) {
     pkmn = result[0].name;
-    console.log("result.name: ",pkmn);
+    res.send("Deleted "+pkmn);
   });
-
-  dbConnect.collection("pokemons").deleteOne( myQuery, function (err, obj) {
-    if (err) throw err;
-    res.send({ Deleted: pkmn });
-  });
+  //Delete the pokemon in all collections
+  dbConnect.collection("pokemons").deleteOne(myQuery);
+  dbConnect.collection("unlocked").deleteOne(myQuery);
+  
 });
 
 
@@ -103,24 +101,29 @@ app.get("/unlocked/list", function (req, res) {
 
 //----------Move a pokemon from the Pokedex to unlocked----------
 app.post('/unlocked/insert', (req, res) => {
-  const dbConnect = dbo.getDb();
+  const dbConnect = dbo.getDb()
+  const body = req.body;
+  console.log('Got body: ', body);
 
-  //get the number of the pokemon to unlock
+  const name = req.query.name;
   const no = req.query.no;
+  let query = {"no": no};
 
-  //find the pokemon in the pokedex
-  let myQuery = {"no": no};
-  dbConnect
-    .collection("pokemons")
-    .find(myQuery)
-    .toArray(function (err, result) {
-      pkmn = result[0];
+  console.log('Object to send: ',query);
+
+  dbConnect.collection("pokemons").find(query).toArray(function (err, result) {
+    if(err){
+      res.status(404).send("Pokemon not found");
+    }
+    pkmn = result[0];
+    /*console.log("Unlocked ",pkmn.name);
+    res.json(pkmn);*/
+    dbConnect.collection("unlocked").insertOne(pkmn, function(err){
+      if(err){
+        res.status(400).send("Couldnt unlock pokemon")
+      } else {
+        res.status(200).send("Unlocked pokemon "+pkmn.name)
+      }
     });
-  
-  console.log('Object to send: ',pkmn);
-
-  /*dbConnect
-    .collection("unlocked")
-    .insertOne(input);
-  res.json(req.body.name)*/
+  });
 });
