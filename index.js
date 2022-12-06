@@ -43,7 +43,7 @@ app.post('/pokedex/delete', (req, res) => {
   
   const no = req.query.no;
 
-  let input = {"name": name, "no": no, "img": img};
+  let input = {"no": no};
   console.log('Object to send: ',input);
 
   const dbConnect = dbo.getDb();
