@@ -46,9 +46,8 @@ app.post('/pokedex/insert', (req, res) => {
 
   const name = req.query.name;
   const no = req.query.no;
-  const img = req.query.img;
 
-  let input = {"name": name, "no": no, "img": img};
+  let input = {"name": name, "no": no, "img": 'https://img.pokemondb.net/sprites/sword-shield/normal/'+name.toLowerCase()+'.png'};
   console.log('Object to send: ',input);
 
   const dbConnect = dbo.getDb();
