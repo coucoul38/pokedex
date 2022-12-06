@@ -102,7 +102,7 @@ app.get("/unlocked/list", function (req, res) {
 });
 
 //----------Move a pokemon from the Pokedex to unlocked----------
-app.post('/pokedex/insert', (req, res) => {
+app.post('/unlocked/insert', (req, res) => {
   const dbConnect = dbo.getDb();
 
   //get the number of the pokemon to unlock
@@ -115,13 +115,12 @@ app.post('/pokedex/insert', (req, res) => {
     .find(myQuery)
     .toArray(function (err, result) {
       pkmn = result[0];
-      console.log("result.name: ",pkmn);
     });
   
   console.log('Object to send: ',pkmn);
 
-  dbConnect
-    .collection("pokemons")
+  /*dbConnect
+    .collection("unlocked")
     .insertOne(input);
-  res.json(req.body.name)
+  res.json(req.body.name)*/
 });
