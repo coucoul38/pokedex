@@ -64,23 +64,29 @@ app.post('/pokedex/insert', (req, res) => {
 });
 
 //----------Delete a pokemon from the Pokedex----------
-app.post('/pokedex/delete', (req, res) => {
+app.delete('/pokedex/delete', (req, res) => {
   const dbConnect = dbo.getDb();
 
   const no = req.query.no;
   console.log("Deleting No: ", no);
-  var myQuery = {no: no};
-
+  const myQuery = {no: no};
   
   //find the pokemon name
-  dbConnect.collection("pokemons").find(myQuery).toArray(function (err, result) {
-    pkmn = result[0].name;
-    res.send("Deleted "+pkmn);
+  dbConnect
+    .collection("pokemons")
+    .findOne(myQuery)
+    .then(function (pkmn,err) {
+      /*console.log(err);
+      console.log(pkmn);*/
+      if(err || !pkmn){
+        res.send("Not found for #"+no);
+      } else {
+          //Delete the pokemon in all collections
+        dbConnect.collection("pokemons").deleteOne(myQuery);
+        dbConnect.collection("unlocked").deleteOne(myQuery);
+        res.send("Deleted "+pkmn.name);
+      }
   });
-  //Delete the pokemon in all collections
-  dbConnect.collection("pokemons").deleteOne(myQuery);
-  dbConnect.collection("unlocked").deleteOne(myQuery);
-  
 });
 
 
