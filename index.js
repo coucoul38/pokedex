@@ -89,7 +89,6 @@ app.delete('/pokedex/delete', (req, res) => {
   });
 });
 
-
 //**********POKEMONS*************//
 //----------Get pokémon---//
 app.get("/unlocked/list", function (req, res) {
