@@ -11,4 +11,4 @@ export const getAll = async () => {
     const pokemons = await response.json()
     return pokemons
 }
-export { getAll }
+//export default getAll;

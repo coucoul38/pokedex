@@ -1,6 +1,6 @@
 import { Route } from 'react-router';
 import {Link} from 'react-router-dom';
-import {getAll} from 'api/api.js';
+import {getAll} from '../api/api.js';
 import {useState,useEffect} from 'react';
 
 <Route path="pokedex/pokemons" />
