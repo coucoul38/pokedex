@@ -1,11 +1,11 @@
 import { Route } from 'react-router';
 import {Link} from 'react-router-dom';
-<Route path="pokedex/" />
+<Route path="pokedex/pokedex" />
 
-function Home(){
+function Pokedex(){
   return (
     <div>
-        <h1>Home</h1>
+        <h1>Pokedex</h1>
         <nav>
             <ul>
                 <li><Link to="/">Homepage</Link></li>
@@ -16,4 +16,4 @@ function Home(){
     </div>
   );
 }
-export { Home };
+export { Pokedex };

@@ -1,19 +1,22 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
-import { Home } from "../pages";
+import { Home } from "./pages/home";
+import { Pokedex } from "./pages/pokedex";
+import { Pokemons } from "./pages/pokemons";
+
 
 function App(props) {
   return (
         <Router>
             <Switch>
-              <Route exact path="/"> //ici on met l'URL dans le navigateur
-                <Home /> //ici on donne la page à afficher en fonction de cette URL
+              <Route exact path="/">
+                <Home /> 
               </Route>
               <Route path="/pokedex">
-                <About />
+                <Pokedex />
               </Route>
-              <Route path="/pokemon">
-                <Dashboard />
+              <Route path="/unlocked">
+                <Pokemons />
               </Route>
             </Switch>
         </Router>
