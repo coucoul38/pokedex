@@ -1,3 +1,5 @@
+var cors = require('cors');
+
 const express = require("express");
 const dbo = require("./db/db");
 const app = express();
