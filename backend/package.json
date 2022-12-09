@@ -22,6 +22,6 @@
     "create-react-app": "^1.2.1",
     "express": "^4.18.2",
     "mongodb": "^4.12.1",
-    "react-router-dom": "^6.4.4"
+    "react-router-dom": "^5.3.4"
   }
 }
