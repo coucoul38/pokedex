@@ -8,7 +8,7 @@ import { Pokemons } from "./pages/pokemons";
 function App(props) {
   return (
         <Router>
-            <Switch>
+            <Route>
               <Route exact path="/">
                 <Home /> 
               </Route>
@@ -18,7 +18,7 @@ function App(props) {
               <Route path="/unlocked">
                 <Pokemons />
               </Route>
-            </Switch>
+            </Route>
         </Router>
   );
 }
