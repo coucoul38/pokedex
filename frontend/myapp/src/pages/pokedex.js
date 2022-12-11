@@ -17,6 +17,7 @@ function Pokedex(){
       .then(result => setPokemons(result))
       .catch(error=>console.error("Erreur avec notre API :",error.message));
   },[]);
+  //console.log(pokemons);
 
   return (
     <div>
@@ -29,8 +30,9 @@ function Pokedex(){
             </ul>
         </nav>
         {
+        
         pokemons.map((pokemon,key) =>{
-          return <div key={key} className="bloc-pokemon">
+          return <div key={pokemon.no} className="bloc-pokemon">
             <img className="avatar" src={pokemon.img} alt="Pokemon" />
             <h2>{pokemon.name}</h2>
             {/*<button onClick={()=>addToPokedex(pokemon._id)}>Capturer !</button>*/}

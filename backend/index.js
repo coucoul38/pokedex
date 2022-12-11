@@ -38,6 +38,7 @@ app.get("/pokemons/list", function (req, res) {
         res.status(400).send("Error fetching pokemons!");
       } else {
         console.log("Pokemons fetched");
+        console.log(result);
         res.json(result);
       }
     });
