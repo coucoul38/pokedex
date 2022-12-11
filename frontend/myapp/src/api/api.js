@@ -24,4 +24,4 @@ export const getCatched = async () => {
     )
     const catched = await response.json()
     return catched
-}
+};
