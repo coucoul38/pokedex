@@ -34,8 +34,10 @@ app.get("/pokemons/list", function (req, res) {
     .sort(sortOrder)
     .toArray(function (err, result){
       if (err) {
+        console.log("Couldnt fetch pokemons");
         res.status(400).send("Error fetching pokemons!");
       } else {
+        console.log("Pokemons fetched");
         res.json(result);
       }
     });
@@ -57,9 +59,11 @@ app.post('/pokedex/insert', (req, res) => {
     .collection("pokemons")
     .insertOne(input, function(err) {
       if (err) {
+        console.log("Couldnt add pokemon");
         res.status(400).send("Couldn't add pokemon")
       } else {
         //return data of the newly added pokemon
+        console.log("Added pokemon");
         res.send(input)
       }
     });
@@ -81,11 +85,13 @@ app.delete('/pokedex/delete', (req, res) => {
       /*console.log(err);
       console.log(pkmn);*/
       if(err || !pkmn){
+        console.log("Couldnt delete pokemons");
         res.send("Not found for #"+no);
       } else {
           //Delete the pokemon in all collections
         dbConnect.collection("pokemons").deleteOne(myQuery);
         dbConnect.collection("unlocked").deleteOne(myQuery);
+        console.log("Deleted "+pkmn.name);
         res.send("Deleted "+pkmn.name);
       }
   });
@@ -105,8 +111,10 @@ app.get("/unlocked/list", function (req, res) {
     .sort(sortOrder)
     .toArray(function (err, result){
       if (err) {
+        console.log("Couldnt fetch pokemons");
         res.status(400).send("Error fetching pokemons!");
       } else {
+        console.log("Got unlocked pokemons");
         res.json(result);
       }
     });
@@ -126,6 +134,7 @@ app.post('/unlocked/insert', (req, res) => {
 
   dbConnect.collection("pokemons").find(query).toArray(function (err, result) {
     if(err){
+      console.log("Pokemon not found");
       res.status(404).send("Pokemon not found");
     }
     pkmn = result[0];
@@ -133,8 +142,10 @@ app.post('/unlocked/insert', (req, res) => {
     res.json(pkmn);*/
     dbConnect.collection("unlocked").insertOne(pkmn, function(err){
       if(err){
+        console.log("Couldnt unlock pokemons");
         res.status(400).send("Couldnt unlock pokemon")
       } else {
+        console.log("Unlocked "+pkmn.name);
         res.status(200).send("Unlocked "+pkmn.name)
       }
     });
