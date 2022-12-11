@@ -1,6 +1,5 @@
-
 {
-  "name": "frontend",
+  "name": "pokedexdebug",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "create-react-app": "^5.0.1",
-    "react-router-dom": "^6.4.4"
+    "react-router-dom": "^5.3.4"
   }
 }
