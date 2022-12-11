@@ -32,7 +32,7 @@ function Pokedex(){
         {
         
         pokemons.map((pokemon,key) =>{
-          return <div key={pokemon.no} className="bloc-pokemon">
+          return <div key={key} className="bloc-pokemon">
             <img className="avatar" src={pokemon.img} alt="Pokemon" />
             <h2>{pokemon.name}</h2>
             {/*<button onClick={()=>addToPokedex(pokemon._id)}>Capturer !</button>*/}
