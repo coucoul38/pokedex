@@ -1,16 +1,16 @@
 import { Route } from 'react-router';
 import {Link} from 'react-router-dom';
-import {getAll} from '../api/api.js';
+import {getAll} from '../api/api';
 import {useState,useEffect} from 'react';
 
 <Route path="pokedex/pokedex" />
 
 function Pokedex(){
-  const [ pokemons, setPokemons ] = useState([]);
   console.log("Pokedex function");
+  const [ pokemons, setPokemons ] = useState([]);
   //va s'executer seulement au lancement du composant (dep: [])
   useEffect(() => {
-    console.log("Fetching pokedex");
+    console.log("Sending pokedex request");
     // récupérer la liste des users seulement au chargement du composant ! 
     const pokemonsFetched = getAll();
     pokemonsFetched

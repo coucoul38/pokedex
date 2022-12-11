@@ -1,6 +1,6 @@
 export const getAll = async () => {
     const response = await fetch(
-        'http://localhost:4444/pokemons/list', {
+        'localhost:4444/pokemons/list', {
             method: 'GET', 
             headers: {
                 'Accept': 'application/json', 
@@ -14,7 +14,7 @@ export const getAll = async () => {
 
 export const getCatched = async () => {
     const response = await fetch(
-        'http://localhost:4444/unlocked/list', {
+        'localhost:4444/unlocked/list', {
             method: 'GET', 
             headers: {
                 'Accept': 'application/json', 
