@@ -7,9 +7,10 @@ import {useState,useEffect} from 'react';
 
 function Pokedex(){
   const [ pokemons, setPokemons ] = useState([]);
-
+  console.log("Pokedex function");
   //va s'executer seulement au lancement du composant (dep: [])
   useEffect(() => {
+    console.log("Fetching pokedex");
     // récupérer la liste des users seulement au chargement du composant ! 
     const pokemonsFetched = getAll();
     pokemonsFetched
