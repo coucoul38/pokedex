@@ -10,14 +10,14 @@ function Pokedex(){
   const [ pokemons, setPokemons ] = useState([]);
   //va s'executer seulement au lancement du composant (dep: [])
   useEffect(() => {
-    console.log("Sending pokedex request");
     // récupérer la liste des users seulement au chargement du composant ! 
     const pokemonsFetched = getAll();
+    //const pokemonsFetched = 1;
+    console.log(pokemonsFetched);
     pokemonsFetched
       .then(result => setPokemons(result))
       .catch(error=>console.error("Erreur avec notre API :",error.message));
   },[]);
-  //console.log(pokemons);
 
   return (
     <div>
@@ -30,15 +30,14 @@ function Pokedex(){
             </ul>
         </nav>
         {
-        
-        pokemons.map((pokemon,key) =>{
-          return <div key={key} className="bloc-pokemon">
-            <img className="avatar" src={pokemon.img} alt="Pokemon" />
-            <h2>{pokemon.name}</h2>
-            {/*<button onClick={()=>addToPokedex(pokemon._id)}>Capturer !</button>*/}
-          </div>
-        })
-      }
+          pokemons.map((pokemon/*,key*/) =>{
+            return <div /*key={key}*/ className="bloc-pokemon">
+              <img className="avatar" src={pokemon.img} alt="Pokemon" />
+              <h2>{pokemon.name}</h2>
+              {/*<button onClick={()=>addToPokedex(pokemon._id)}>Capturer !</button>*/}
+            </div>
+          })
+        }
     </div>
   );
 }
