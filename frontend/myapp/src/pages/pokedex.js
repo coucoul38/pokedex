@@ -34,8 +34,8 @@ function Pokedex(){
             return (<div key={key} className="bloc-pokemon pixel">
               <img className="avatar" src={pokemon.img} alt="Pokemon" />
               <h2>{pokemon.name}</h2>
-              {pokemon.no}
-              {<button onClick={()=>addToPokedex(pokemon.no)} ><img src="https://img.pokemondb.net/sprites/items/master-ball.png" alt="Capturer !"/></button>}
+              No{pokemon.no}
+              {<button onClick={()=>addToPokedex(pokemon.no)}><img src="https://img.pokemondb.net/sprites/items/master-ball.png" alt="Capturer !"className='balls'/></button>}
             </div>)
           })
         }

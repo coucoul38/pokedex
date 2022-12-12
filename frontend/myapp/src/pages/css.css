@@ -31,5 +31,12 @@ img {
 }
 img:hover {
     transform: scale(0.9,0.9);
+    /*transform: rotate(360deg);*/
+    transform: translateY(10px);
+}
+.balls {
+    transition: transform 1s ease-in-out;
+}
+.balls:hover {
     transform: rotate(360deg);
 }
