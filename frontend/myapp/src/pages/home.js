@@ -4,11 +4,10 @@ import {Link} from 'react-router-dom';
 
 function Home(){
   return (
-    <div>
-        <h1>Home</h1>
+    <div className='pixel'>
+        <h1 className='center title'>Home</h1>
         <nav>
             <ul>
-                <li><Link to="/">Homepage</Link></li>
                 <li><Link to="/pokedex">Pokedex</Link></li>
                 <li><Link to="/unlocked">Unlocked pokemons</Link></li>
             </ul>

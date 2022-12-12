@@ -22,19 +22,18 @@ function Pokemons(){
   console.log(pokemons);
 
   return (
-    <div>
-        <h1>Unlocked pokemons</h1>
+    <div className='pixel'>
+        <h1 className='center title'>Unlocked pokemons</h1>
         <nav>
             <ul>
                 <li><Link to="/">Homepage</Link></li>
                 <li><Link to="/pokedex">Pokedex</Link></li>
-                <li><Link to="/unlocked">Unlocked pokemons</Link></li>
             </ul>
         </nav>
         {
           
           pokemons.map((pokemon,key) =>{
-            return (<div key={key} className="bloc-pokemon">
+            return (<div key={key} className="bloc-pokemon pixel">
               <img className="avatar" src={pokemon.img} alt="Pokemon" />
               <h2>{pokemon.name}</h2>
               {/*<button onClick={()=>addToPokedex(pokemon._id)}>Capturer !</button>*/}
