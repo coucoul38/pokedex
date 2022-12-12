@@ -1,6 +1,6 @@
 import { Route } from 'react-router';
 import {Link} from 'react-router-dom';
-import {getCatched} from '../api/api.js';
+import {getCatched} from '../api/api';
 import {useState,useEffect} from 'react';
 
 <Route path="pokedex/pokemons" />
@@ -10,20 +10,20 @@ import {useState,useEffect} from 'react';
 // }
 
 function Pokemons(){
+  console.log("Pokedex function");
   const [ pokemons, setPokemons ] = useState([]);
-
-  //va s'executer seulement au lancement du composant (dep: [])
   useEffect(() => {
-    // récupérer la liste des users seulement au chargement du composant ! 
+    // Get the list of pokemons when loading the page
     const pokemonsFetched = getCatched();
     pokemonsFetched
       .then(result => setPokemons(result))
       .catch(error=>console.error("Erreur avec notre API :",error.message));
   },[]);
+  console.log(pokemons);
 
   return (
     <div>
-        <h1>Pokemons</h1>
+        <h1>Unlocked pokemons</h1>
         <nav>
             <ul>
                 <li><Link to="/">Homepage</Link></li>
@@ -32,14 +32,15 @@ function Pokemons(){
             </ul>
         </nav>
         {
-        pokemons.map((pokemon,key) =>{
-          return <div key={key} className="bloc-pokemon">
-            <img className="avatar" src={pokemon.img} alt="Pokemon" />
-            <h2>{pokemon.name}</h2>
-            {/* <button onClick={()=>addToPokedex(pokemon._id)}>Capturer !</button> */}
-          </div>
-        })
-      }
+          
+          pokemons.map((pokemon,key) =>{
+            return (<div key={key} className="bloc-pokemon">
+              <img className="avatar" src={pokemon.img} alt="Pokemon" />
+              <h2>{pokemon.name}</h2>
+              {/*<button onClick={()=>addToPokedex(pokemon._id)}>Capturer !</button>*/}
+            </div>)
+          })
+        }
     </div>
   );
 }

@@ -3,6 +3,7 @@ var cors = require('cors');
 const express = require("express");
 const dbo = require("./db/db");
 const app = express();
+app.use(cors());
 const port = 4444;
 const bodyParser = require('body-parser');
 const db = require("./db/db");
@@ -23,9 +24,7 @@ app.listen(port, function () {
 //**********POKEDEX*************//
 //Get pokemons from db
 app.get("/pokemons/list", function (req, res) {
-  //connexion à la db mongo db
   const dbConnect = dbo.getDb();
-  //premier test permettant de récupérer mes pokemons !
   var sortOrder = { no : 1 };
   dbConnect
     .collection("pokemons")
@@ -151,3 +150,4 @@ app.post('/unlocked/insert', (req, res) => {
     });
   });
 });
+
