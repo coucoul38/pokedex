@@ -36,7 +36,7 @@ app.get("/pokemons/list", function (req, res) {
         console.log("Couldnt fetch pokemons");
         res.status(400).send("Error fetching pokemons!");
       } else {
-        console.log("Pokemons fetched");
+        //console.log("Pokemons fetched");
         res.json(result);
       }
     });
@@ -45,8 +45,6 @@ app.get("/pokemons/list", function (req, res) {
 //----------Add a pokemon to the Pokedex----------
 app.post('/pokedex/insert', (req, res) => {
   const dbConnect = dbo.getDb();
-  const body = req.body;
-  console.log('Got body: ', body);
 
   const name = req.query.name;
   const no = req.query.no;
@@ -123,8 +121,6 @@ app.get("/unlocked/list", function (req, res) {
 //----------Move a pokemon from the Pokedex to unlocked----------
 app.post('/unlocked/insert', (req, res) => {
   const dbConnect = dbo.getDb()
-  const body = req.body;
-  console.log('Got body: ', body);
 
   const name = req.query.name;
   const no = req.query.no;

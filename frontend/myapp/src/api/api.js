@@ -39,10 +39,13 @@ export function release(no){
         }
     )
 };
+
 export function deletePokemon(no){
     fetch(
         'http://localhost:4444/pokedex/delete?no='+no, {
             method: 'POST'
         }
-    )
+    );
+    console.log("Tried to delete pkmn no:");
+    console.log(no)
 };

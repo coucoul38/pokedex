@@ -26,12 +26,13 @@ function Manage(){
                 <li><Link to="/unlocked">Catched pokemons</Link></li>
             </ul>
         </nav>
-        <form onSubmit={deletePokemon(deleteNo)}>
+        <form action={deletePokemon(deleteNo)}>
             <label htmlFor='no'>Enter the pokemon 3-digit number</label>
             <input type="text" name="no" minLength={3} maxLength={3} required onChange={handleChange}></input>
             <input type="submit" id="delete" name="delete" value="Delete pokemon"></input>
         </form>
-        Pokemon to delete: {deleteNo}
+        Trying to delete pkmn {deleteNo}
+        
     </div>
   );
 }
