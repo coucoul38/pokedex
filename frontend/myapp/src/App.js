@@ -7,19 +7,19 @@ import { Pokemons } from "./pages/pokemons";
 
 function App(props) {
   return (
-        <Router>
-            <Switch>
-              <Route exact path="/">
-                <Home /> 
-              </Route>
-              <Route path="/pokedex">
-                <Pokedex />
-              </Route>
-              <Route path="/unlocked">
-                <Pokemons />
-              </Route>
-            </Switch>
-        </Router>
+    <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home /> 
+          </Route>
+          <Route path="/pokedex">
+            <Pokedex />
+          </Route>
+          <Route path="/unlocked">
+            <Pokemons />
+          </Route>
+        </Switch>
+    </Router>
   );
 }
 
