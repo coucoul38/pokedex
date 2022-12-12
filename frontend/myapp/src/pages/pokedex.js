@@ -8,7 +8,6 @@ import {useState,useEffect} from 'react';
 <Route path="pokedex/pokedex" />
 
 function Pokedex(){
-  console.log("Pokedex function");
   const [ pokemons, setPokemons ] = useState([]);
   useEffect(() => {
     // Get the list of pokemons when loading the page
@@ -17,7 +16,6 @@ function Pokedex(){
       .then(result => setPokemons(result))
       .catch(error=>console.error("Erreur avec notre API :",error.message));
   },[]);
-  console.log(pokemons);
 
   return (
     <div className='pixel'>
@@ -26,6 +24,7 @@ function Pokedex(){
             <ul>
                 <li><Link to="/">Homepage</Link></li>
                 <li><Link to="/unlocked">Unlocked pokemons</Link></li>
+                <li><Link to="/manage">Manage pokemons</Link></li>
             </ul>
         </nav>
         {

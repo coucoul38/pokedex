@@ -85,6 +85,7 @@ app.delete('/pokedex/delete', (req, res) => {
       console.log(pkmn);*/
       if(err || !pkmn){
         console.log("Couldnt delete pokemons");
+        console.log("Pokemon no received: "+no)
         res.send("Not found for #"+no);
       } else {
           //Delete the pokemon in all collections
@@ -113,7 +114,7 @@ app.get("/unlocked/list", function (req, res) {
         console.log("Couldnt fetch pokemons");
         res.status(400).send("Error fetching pokemons!");
       } else {
-        console.log("Got unlocked pokemons");
+        //console.log("Got unlocked pokemons");
         res.json(result);
       }
     });
@@ -151,3 +152,29 @@ app.post('/unlocked/insert', (req, res) => {
   });
 });
 
+//----------Release a captured pokemon----------
+app.post('/unlocked/release', (req, res) => {
+  const dbConnect = dbo.getDb();
+
+  const no = req.query.no;
+  console.log("Deleting No: ", no);
+  const myQuery = {no: no};
+  
+  //find the pokemon name
+  dbConnect
+    .collection("unlocked")
+    .findOne(myQuery)
+    .then(function (pkmn,err) {
+      /*console.log(err);
+      console.log(pkmn);*/
+      if(err || !pkmn){
+        console.log("Couldnt delete pokemons");
+        res.send("Not found for #"+no);
+      } else {
+          //Delete the pokemon only in the collection "unlocked"
+        dbConnect.collection("unlocked").deleteOne(myQuery);
+        console.log("Released "+pkmn.name);
+        res.send("Released "+pkmn.name);
+      }
+  });
+});

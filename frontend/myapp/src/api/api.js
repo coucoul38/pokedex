@@ -27,12 +27,22 @@ export const getCatched = async () => {
 };
 export function addToPokedex(no){
     fetch(
-        'http://10.1.2.35:4444/unlocked/insert?no='+no, {
-            method: 'POST'/*, 
-            headers: {
-                'Accept': 'application/json', 
-                'Content-Type':'application/json'
-            }*/
+        'http://localhost:4444/unlocked/insert?no='+no, {
+            method: 'POST'
+        }
+    )
+};
+export function release(no){
+    fetch(
+        'http://localhost:4444/unlocked/release?no='+no, {
+            method: 'POST'
+        }
+    )
+};
+export function deletePokemon(no){
+    fetch(
+        'http://localhost:4444/pokedex/delete?no='+no, {
+            method: 'POST'
         }
     )
 };

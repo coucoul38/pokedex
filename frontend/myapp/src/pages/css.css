@@ -34,6 +34,7 @@ img:hover {
     /*transform: rotate(360deg);*/
     transform: translateY(10px);
 }
+
 .balls {
     transition: transform 1s ease-in-out;
 }

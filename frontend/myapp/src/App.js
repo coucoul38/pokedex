@@ -3,6 +3,7 @@ import './App.css';
 import { Home } from "./pages/home";
 import { Pokedex } from "./pages/pokedex";
 import { Pokemons } from "./pages/pokemons";
+import { Manage } from "./pages/manage";
 
 
 function App(props) {
@@ -17,6 +18,9 @@ function App(props) {
           </Route>
           <Route path="/unlocked">
             <Pokemons />
+          </Route>
+          <Route path="/manage">
+            <Manage />
           </Route>
         </Switch>
     </Router>
