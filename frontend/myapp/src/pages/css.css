@@ -21,16 +21,11 @@
     padding: 1%;
 }
 
-.nav {
-    color: red;
-}
-
-.nav:hover {
-    color: #ff9b9b;
-}
-
-.nav:active {
-    color: rgb(179, 255, 255);
+.navbar{
+    position: sticky;
+    top: 0;
+    z-index:9999;
+    cursor: grab;
 }
 
 ul {
@@ -53,6 +48,15 @@ li {
 li a {
     display: block;
     padding: 8px;
+    color: red;
+}
+
+li a:hover {
+    color: #ff9b9b;
+}
+
+li a:active {
+    color: rgb(179, 255, 255);
 }
 
 .poke-button {
@@ -88,4 +92,8 @@ img.avatar{
 }
 .balls:hover {
     transform: rotate(360deg);
+}
+
+form {
+    margin: 2px;
 }

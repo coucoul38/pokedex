@@ -48,7 +48,9 @@ app.post('/pokedex/insert', (req, res) => {
 
   const name = req.query.name;
   const no = req.query.no;
-  let input = {"name": name, "no": no/*, "img": 'https://img.pokemondb.net/sprites/sword-shield/icon/'+name.toLowerCase()+'.png'*/};
+  const type1 = req.query.type1;
+  const type2 = req.query.type2;
+  let input = {"name": name, "no": no, "type1": type1, "type2": type2/*, "img": 'https://img.pokemondb.net/sprites/sword-shield/icon/'+name.toLowerCase()+'.png'*/};
 
   console.log('Object to send: ',input);
 

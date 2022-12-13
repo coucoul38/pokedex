@@ -21,15 +21,17 @@ function Pokemons(){
 
   return (
     <div className='pixel'>
+      <div className='navbar'>
         <h1 className='center title'>Unlocked pokemons</h1>
         <nav>
             <ul>
-                <li><Link to="/" className='nav'>Homepage</Link></li>
-                <li><Link to="/pokedex" className='nav'>Pokedex</Link></li>
-                <li><Link to="/unlocked" className='nav'>Unlocked</Link></li>
-                <li><Link to="/manage" className='nav'>Manage pokemons</Link></li>
+                <li><Link to="/">Homepage</Link></li>
+                <li><Link to="/pokedex">Pokedex</Link></li>
+                <li><Link to="/unlocked">Unlocked</Link></li>
+                <li><Link to="/manage">Manage pokemons</Link></li>
             </ul>
         </nav>
+      </div>
         {
           
           pokemons.map((pokemon,key) =>{
