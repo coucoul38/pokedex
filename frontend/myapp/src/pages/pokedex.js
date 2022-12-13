@@ -36,6 +36,8 @@ function Pokedex(){
               <img className='avatar' src={'https://img.pokemondb.net/sprites/sword-shield/icon/'+pokemon.name.toLowerCase()+'.png'} /*{pokemon.img}*/ alt="Pokemon" />
               <h2>{pokemon.name}</h2>
               No{pokemon.no}
+              <img className='type' src={'../img/'+pokemon.type1+'.png'}></img>
+              <img className='type' src={'/src/img/'+pokemon.type2+'.png'}></img>
               {<button onClick={()=>addToPokedex(pokemon.no)} className="poke-button"><img src="https://img.pokemondb.net/sprites/items/master-ball.png" alt="Capturer !"className='balls'/></button>}
             </div>)
           })
