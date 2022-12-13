@@ -49,3 +49,12 @@ export function deletePokemon(no){
     console.log("Tried to delete pkmn no:");
     console.log(no)
 };
+
+export function addPokemon(name, no){
+    fetch(
+        'http://localhost:4444/pokedex/insert?name='+name+'&no='+no, {
+            method: 'POST'
+        }
+    )
+    console.log("Tried to add a new pokemon")
+};
