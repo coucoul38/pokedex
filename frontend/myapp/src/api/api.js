@@ -50,9 +50,9 @@ export function deletePokemon(no){
     console.log(no)
 };
 
-export function addPokemon(name, no){
+export function addPokemon(name, no, type1, type2){
     fetch(
-        'http://localhost:4444/pokedex/insert?name='+name+'&no='+no, {
+        'http://localhost:4444/pokedex/insert?name='+name+'&no='+no+'&type1='+type1+'&type2='+type2, {
             method: 'POST'
         }
     )

@@ -40,7 +40,7 @@ function Manage(){
     }
     const handleCreate = event => {
         alert('Created a new pokemon');
-        addPokemon(newPokeName, newPokeNo);
+        addPokemon(newPokeName, newPokeNo, type1, type2);
         event.preventDefault();
     }
 
