@@ -36,7 +36,7 @@ function Pokemons(){
             return (<div key={key} className="bloc-pokemon pixel">
               <img className='avatar' src={'https://img.pokemondb.net/sprites/sword-shield/icon/'+pokemon.name.toLowerCase()+'.png'} /*{pokemon.img}*/ alt="Pokemon" />
               <h2>{pokemon.name}</h2>
-              {<button onClick={()=>release(pokemon.no)} class="poke-button">Release</button>}
+              {<button onClick={()=>release(pokemon.no)} className="poke-button">Release</button>}
             </div>)
           })
         }

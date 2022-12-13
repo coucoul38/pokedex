@@ -52,14 +52,14 @@ function Manage(){
         <form onSubmit={handleDelete}>
             <label htmlFor='no'>Enter the pokemon 3-digit number:<br></br></label>
             <input type="number" name="no" minLength={3} maxLength={3} required onChange={handleDeleteChange}></input>
-            <input type="submit" id="delete" name="delete" value="Delete pokemon" class="poke-button"></input>
+            <input type="submit" id="delete" name="delete" value="Delete pokemon" className="poke-button"></input>
         </form>
         <br></br>
         Add a pokemon<br></br>
         <form onSubmit={handleCreate}>
             No:<input type="number" name="no" minLength={3} maxLength={3} required onChange={handleNoChange}></input><br></br>
             Name:<input type="text" name="name" required onChange={handleNameChange}></input><br></br>
-            <input type="submit" id="new" name="new" value="Create pokemon" class="poke-button"></input>
+            <input type="submit" id="new" name="new" value="Create pokemon" className="poke-button"></input>
         </form>
         Image is automatically filled
         
