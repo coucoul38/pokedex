@@ -1,3 +1,11 @@
+.aliasing {
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: pixelated;
+}
+
 .bloc-pokemon {
     background-color: rgba(255, 240, 212, 0.801);  
     margin: 5%;
@@ -65,12 +73,18 @@ li a:active {
     justify-content: center;
     background-color: rgb(255, 73, 73);
     color: white;
+    margin: 5px;
 }
 
 .poke-button:hover {
     transform: scale(0.9,0.9);
     background-color: rgb(226, 241, 255);
     color:rgb(39, 39, 39);
+}
+
+.catch {
+    background-color: rgba(0,0,0,0);
+    border: none;
 }
 
 img {
@@ -84,18 +98,14 @@ img.avatar:hover {
     
 }
 img.avatar{
-    width: 7%;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: -o-crisp-edges;
-    image-rendering: -webkit-optimize-contrast;
-    -ms-interpolation-mode: nearest-neighbor;
-    image-rendering: pixelated;
+    width: 150px;
 }
 img.type{
-    width: 5%;
+    width: 80px;
 }
 
 .balls {
+    width: 50px;
     transition: transform 1s ease-in-out;
 }
 .balls:hover {

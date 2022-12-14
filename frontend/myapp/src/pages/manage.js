@@ -34,7 +34,7 @@ function Manage(){
         setType2(event.target.value);
     }
     const handleDelete = event => {
-        alert('Deleting a pokemon: '+deleteNo);
+        alert('Deleted pokemon no '+deleteNo);
         deletePokemon(deleteNo);
         event.preventDefault();
     }
