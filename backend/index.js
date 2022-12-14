@@ -42,6 +42,29 @@ app.get("/pokemons/list", function (req, res) {
     });
 });
 
+//Get pokemons from db
+app.post("/pokemons/list/type", function (req, res) {
+  const dbConnect = dbo.getDb();
+  var sortOrder = { no : 1 };
+  const type= req.query.type;
+  dbConnect
+    .collection("pokemons")
+    .find({ $or: [ { type1: type }, { type2: type } ] }) // permet de filtrer les résultats
+    /*.limit(50) // pourrait permettre de limiter le nombre de résultats */
+    .sort(sortOrder)
+    .toArray(function (err, result){
+      if (err) {
+        console.log("Couldnt fetch pokemons");
+        res.status(400).send("Error fetching pokemons!");
+      } else {
+        //console.log("Pokemons fetched");
+        res.json(result);
+      }
+    });
+});
+
+
+
 //----------Add a pokemon to the Pokedex----------
 app.post('/pokedex/insert', (req, res) => {
   const dbConnect = dbo.getDb();

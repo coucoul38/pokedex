@@ -30,18 +30,24 @@ function Pokedex(){
             </ul>
         </nav>
       </div>
+      <div className='row'>
         {
           pokemons.map((pokemon,key) =>{
-            return (<div key={key} className="bloc-pokemon pixel">
-              <img className='avatar aliasing' src={'https://img.pokemondb.net/sprites/sword-shield/icon/'+pokemon.name.toLowerCase()+'.png'} /*{pokemon.img}*/ alt="Pokemon" />
-              <h2>{pokemon.name}</h2>
-              No:{pokemon.no}<br></br>
-              <img className='type' src={'./img/'+pokemon.type1+'.png'} alt={pokemon.type1}></img>
-              <img className='type' src={'./img/'+pokemon.type2+'.png'} alt={pokemon.type2}></img><br></br>
-              {<button onClick={()=>addToPokedex(pokemon.no)} className="poke-button catch"><img src="https://img.pokemondb.net/sprites/items/master-ball.png" alt="Capturer !"className='balls aliasing'/></button>}
-            </div>)
+            return (
+                <div key={key} className="bloc-pokemon pixel">
+                  <img className='avatar aliasing' src={'https://img.pokemondb.net/sprites/sword-shield/icon/'+pokemon.name.toLowerCase()+'.png'} /*{pokemon.img}*/ alt="Pokemon" />
+                  <h2>{pokemon.name}</h2>
+                  No:{pokemon.no}<br></br>
+                  <img className='type' src={'./img/'+pokemon.type1+'.png'} alt={pokemon.type1}></img>
+                  {
+                    pokemon.type2==="none"?null:<img className='type' src={'./img/'+pokemon.type2+'.png'} alt={pokemon.type2}></img>
+                  }
+                  <br></br>
+                  {<button onClick={()=>addToPokedex(pokemon.no)} className="poke-button catch"><img src="https://img.pokemondb.net/sprites/items/master-ball.png" alt="Capturer !"className='balls aliasing'/></button>}
+              </div>)
           })
         }
+      </div>
     </div>
   );
 }

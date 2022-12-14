@@ -32,19 +32,27 @@ function Pokemons(){
             </ul>
         </nav>
       </div>
+      <div className='row'>
         {
           
           pokemons.map((pokemon,key) =>{
             return (<div key={key} className="bloc-pokemon pixel">
               <img className='avatar aliasing' src={'https://img.pokemondb.net/sprites/sword-shield/icon/'+pokemon.name.toLowerCase()+'.png'} /*{pokemon.img}*/ alt="Pokemon" />
               <h2>{pokemon.name}</h2>
+              No:{pokemon.no}<br></br>
               <img className='type' src={'./img/'+pokemon.type1+'.png'} alt={pokemon.type1}></img>
-              <img className='type' src={'./img/'+pokemon.type2+'.png'} alt={pokemon.type2}></img><br></br>
-              {<button onClick={()=>release(pokemon.no)} className="poke-button">Release</button>}
+              {
+                pokemon.type2==="none"?null:<img className='type' src={'./img/'+pokemon.type2+'.png'} alt={pokemon.type2}></img>
+              }
+              <br></br>
+              {<button onClick={()=>release(pokemon.no)} className="poke-button">
+                <div className="release-btn">Release</div>
+              </button>}
             </div>)
           })
         }
     </div>
+  </div>
   );
 }
 
