@@ -149,7 +149,7 @@ app.post("/unlocked/list/type", function (req, res) {
   var sortOrder = { no : 1 };
   const type= req.query.type;
   dbConnect
-    .collection("unlocked")
+    .collection("pokemons")
     .find({ $or: [ { type1: type }, { type2: type } ] }) // permet de filtrer les résultats
     /*.limit(50) // pourrait permettre de limiter le nombre de résultats */
     .sort(sortOrder)
