@@ -220,3 +220,26 @@ app.post('/unlocked/release', (req, res) => {
       }
   });
 });
+
+
+
+//Check if pokemon is unlocked
+app.post("/unlocked/check", function (req, res) {
+  const dbConnect = dbo.getDb();
+  var sortOrder = { no : 1 };
+  const no= req.query.no;
+  dbConnect
+    .collection("unlocked")
+    .find({no: no}) // permet de filtrer les résultats
+    /*.limit(50) // pourrait permettre de limiter le nombre de résultats */
+    .sort(sortOrder)
+    .toArray(function (err, result){
+      if (err) {
+        console.log("Couldnt fetch pokemons");
+        res.json(false);
+      } else {
+        //console.log("Pokemons fetched");
+        res.json(true);
+      }
+    });
+});
