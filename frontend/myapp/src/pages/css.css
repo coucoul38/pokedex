@@ -59,7 +59,7 @@ body {
     position: sticky;
     top: 0;
     z-index:9999;
-    cursor: grab;
+    cursor: help;
 }
 
 .ul-nav {
@@ -135,6 +135,7 @@ li a:active {
     background-color: rgb(255, 73, 73);
     color: white;
     margin: 5px;
+    cursor: grab;
 }
 
 .poke-button:hover {
@@ -165,6 +166,7 @@ img.avatar:hover {
 }
 img.avatar{
     width: 150px;
+    cursor: zoom-in;
 }
 img.type{
     width: 80px;
