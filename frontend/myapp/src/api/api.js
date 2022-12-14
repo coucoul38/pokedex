@@ -42,7 +42,7 @@ export const getCatched = async () => {
 };
 export const getCatchedByType = async (type) => {
     const response = await fetch(
-        'http://localhost:4444/unlocked/type?type='+type, {
+        'http://localhost:4444/unlocked/list/type?type='+type, {
             method: 'POST', 
             headers: {
                 'Accept': 'application/json', 
