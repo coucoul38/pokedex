@@ -75,6 +75,7 @@ function Manage(){
                 Name:<input type="text" name="name" required onChange={handleNameChange}></input><br></br>
 
                 Type 1:<select id="type" name="type" required onChange={handleType1Change}>
+                <option value="none" selected disabled hidden>Select an Option</option>
                     <option value="normal">Normal</option>
                     <option value="fire">Fire</option>
                     <option value="fighting">Fighting</option>
@@ -97,6 +98,7 @@ function Manage(){
 
 
                 Type 2:<select id="type" name="type" required onChange={handleType2Change}>
+                <option value="none" selected disabled hidden>Select an option</option>
                     <option value="none">None</option>
                     <option value="normal">Normal</option>
                     <option value="fire">Fire</option>
