@@ -30,6 +30,28 @@ function Pokedex(){
             </ul>
         </nav>
       </div>
+        <nav>
+            <ul>
+                <li><Link to="/"><img src='./img/normal.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/fire.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/fighting.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/water.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/flying.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/grass.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/poison.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/electric.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/ground.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/psychic.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/rock.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/ice.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/bug.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/ghost.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/dark.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/steel.png'></img></Link></li>
+                <li><Link to="/"><img src='./img/fairy.png'></img></Link></li>
+
+            </ul>
+        </nav>
       <div className='row'>
         {
           pokemons.map((pokemon,key) =>{
