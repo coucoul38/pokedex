@@ -28,7 +28,7 @@ function Pokedex(){
   });
 
   return (
-    <div className='pixel'>
+    <div>
       <div className='navbar'>
         <h1 className='center title'>Pokedex</h1>
         <nav>
@@ -69,7 +69,7 @@ function Pokedex(){
         {
           pokemons.map((pokemon,key) =>{
             return (
-                <div key={key} className="bloc-pokemon pixel">
+                <div key={key} className="bloc-pokemon">
                   <img className='avatar aliasing' src={'https://img.pokemondb.net/sprites/sword-shield/icon/'+pokemon.name.toLowerCase()+'.png'} /*{pokemon.img}*/ alt="Pokemon" />
                   <h2>{pokemon.name}</h2>
                   No:{pokemon.no}<br></br>

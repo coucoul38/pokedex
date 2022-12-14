@@ -1,7 +1,28 @@
+.title {
+    color: rgb(255, 232, 100);
+    text-shadow: 4px 0 rgb(77, 57, 255), -4px 0 rgb(77, 57, 255), 0 4px rgb(77, 57, 255), 0 -4px rgb(77, 57, 255),
+    2px 2px rgb(77, 57, 255), -2px -2px rgb(77, 57, 255), 2px -2px rgb(77, 57, 255), -2px 2px rgb(77, 57, 255);
+    background-color: rgb(255, 68, 68);
+    margin: 0%;
+    padding: 1%;
+    -webkit-text-stroke: 0 !important;
+}
+
 body {
     background-color: rgb(128,175,114);
     background-image: url("../../public/img/background.png");
     background-repeat: repeat-x;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+    color: white;
+    font-family: 'Press Start 2P', serif;
+}
+.underline{
+    text-decoration: underline;
+    margin: 2px;
+}
+.center{
+    text-align: center;
 }
 
 .aliasing {
@@ -11,14 +32,6 @@ body {
     -ms-interpolation-mode: nearest-neighbor;
     image-rendering: pixelated;
 }
-
-
-
-.underline{
-    text-decoration: underline;
-    margin: 2px;
-}
-
 
 .row {
     display: flex;
@@ -33,38 +46,12 @@ body {
     border-radius: 1%;
 }
 
-.pixel {
-    font-family: 'Press Start 2P', serif;
-}
-.center{
-    text-align: center;
-}
-
 
 
 .transparent {
     background-color: rgba(0,0,0,0) !important;
     border: none;
 }
-
-
-
-
-
-.title {
-    color: rgb(255, 232, 100);
-    text-shadow: 4px 0 rgb(77, 57, 255), -4px 0 rgb(77, 57, 255), 0 4px rgb(77, 57, 255), 0 -4px rgb(77, 57, 255),
-    2px 2px rgb(77, 57, 255), -2px -2px rgb(77, 57, 255), 2px -2px rgb(77, 57, 255), -2px 2px rgb(77, 57, 255);
-    background-color: rgb(255, 68, 68);
-    margin: 0%;
-    padding: 1%;
-}
-
-
-
-
-
-
 
 
 .navbar{
@@ -144,14 +131,7 @@ li a:active {
 .bloc-pokemon {
     text-align: center;
     flex-basis:33%;
-    -webkit-text-stroke: 1px;
-    -webkit-text-stroke-color: black;
-    color: white;
 }
-
-
-
-
 
 .poke-button {
     transition: transform 0.3s ease-out;

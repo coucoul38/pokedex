@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 function Home(){
   return (
-    <div className='pixel'>
+    <div>
         <h1 className='center title'>Home</h1>
         <nav>
             <ul className="ul-nav">

@@ -45,7 +45,7 @@ function Manage(){
     }
 
   return (
-    <div className='pixel'>
+    <div>
         <div className='navbar'>
             <h1 className='center title'>Manage pokemons</h1>
             <nav>
