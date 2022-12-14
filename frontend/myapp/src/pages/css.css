@@ -48,7 +48,7 @@ body {
 
 
 
-.transparent {
+.transparent, .orderType button {
     background-color: rgba(0,0,0,0) !important;
     border: none;
 }
@@ -106,12 +106,6 @@ li a:active {
     flex-direction: row;
 }
 
-
-
-.orderType button{
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-}
 
 .orderType button:active {
     transform: scale(0.9);

@@ -87,3 +87,12 @@ export function addPokemon(name, no, type1, type2){
     )
     console.log("Tried to add a new pokemon")
 };
+
+export function modifyPokemon(no, newname, newno, newtype1, newtype2){
+    fetch(
+        'http://localhost:4444/pokedex/modify?no='+no+'&name='+newname+'&newno='+newno+'&newtype1='+newtype1+'&newtype2='+newtype2, {
+            method: 'POST'
+        }
+    )
+    console.log("Tried to add a new pokemon")
+};

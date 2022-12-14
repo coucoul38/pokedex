@@ -243,3 +243,37 @@ app.post("/unlocked/check", function (req, res) {
       }
     });
 });
+
+
+//----------Modify a pokemon from the Pokedex----------
+app.delete('/pokedex/modify', (req, res) => {
+  const dbConnect = dbo.getDb();
+
+  const no = req.query.no;
+  const newno = req.query.newno;
+  const newname = req.query.newname;
+  const newtype1 = req.query.newtype1;
+  const newtype2 = req.query.newtype2;
+  console.log("Modifying No: ", no);
+  const filter = {no: no};
+  
+  //find the pokemon name
+  dbConnect
+    .collection("pokemons")
+    .findOne(filter)
+    .then(function (pkmn,err) {
+      /*console.log(err);
+      console.log(pkmn);*/
+      if(err || !pkmn){
+        console.log("Couldnt delete pokemons");
+        console.log("Pokemon no received: "+no)
+        res.send("Not found for #"+no);
+      } else {
+          //Delete the pokemon in all collections
+        dbConnect.collection("pokemons").findOneAndUpdate(filter);
+        dbConnect.collection("unlocked").deleteOne(filter, {"name": newname, "no": newno, "type1": newtype1, "type2": newtype2});
+        console.log("Deleted "+pkmn.name);
+        res.send("Deleted "+pkmn.name);
+      }
+  });
+});
