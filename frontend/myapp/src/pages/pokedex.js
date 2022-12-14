@@ -61,7 +61,7 @@ function Pokedex(){
                 <li><button onClick={()=>setTypeSearch("dark")}>       <img src='./img/dark.png' alt='type'></img></button></li>
                 <li><button onClick={()=>setTypeSearch("steel")}>      <img src='./img/steel.png' alt='type'></img></button></li>
                 <li><button onClick={()=>setTypeSearch("fairy")}>      <img src='./img/fairy.png' alt='type'></img></button></li>
-                <li><button onClick={()=>setTypeSearch("none")}> Clear</button></li>
+                <li><button onClick={()=>setTypeSearch("none")} className='poke-button'> Clear</button></li>
               </div>
             </ul>
         </nav>

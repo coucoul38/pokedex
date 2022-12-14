@@ -102,8 +102,19 @@ li a:active {
     flex-wrap: wrap;
     flex-direction: row;
 }
-img.ordertype{
-    width: 100% !important;
+
+.orderType button{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+.orderType img{
+    border-radius: 10px;
+}
+
+.orderType img:hover{
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.1);
 }
 
 .poke-button {
