@@ -90,7 +90,7 @@ export function addPokemon(name, no, type1, type2){
 
 export function modifyPokemon(no, newname, newno, newtype1, newtype2){
     fetch(
-        'http://localhost:4444/pokedex/modify?no='+no+'&name='+newname+'&newno='+newno+'&newtype1='+newtype1+'&newtype2='+newtype2, {
+        'http://localhost:4444/pokedex/modify?no='+no+'&newname='+newname+'&newno='+newno+'&newtype1='+newtype1+'&newtype2='+newtype2, {
             method: 'POST'
         }
     )
