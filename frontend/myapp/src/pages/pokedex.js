@@ -9,7 +9,7 @@ import {useState,useEffect} from 'react';
 
 function Pokedex(){
   const [ pokemons, setPokemons ] = useState([]);
-  const [ typeSearch, setTypeSearch] = useState([]);
+  const [ typeSearch, setTypeSearch] = useState('none');
 
   useEffect(() => {
     // Get the list of pokemons when loading the page
@@ -79,7 +79,7 @@ function Pokedex(){
                     pokemon.type2==="none"?null:<img className='type' src={'./img/'+pokemon.type2+'.png'} alt={pokemon.type2}></img>
                   }
                   <br></br>
-                  {<button onClick={()=>addToPokedex(pokemon.no)} className="poke-button catch"><img src="https://img.pokemondb.net/sprites/items/master-ball.png" alt="Capturer !"className='balls aliasing'/></button>}
+                  {<button onClick={()=>addToPokedex(pokemon.no)} className="poke-button transparent"><img src="https://img.pokemondb.net/sprites/items/master-ball.png" alt="Capturer !"className='balls aliasing'/></button>}
               </div>)
           })
         }
