@@ -76,7 +76,7 @@ li a:active {
 img {
     transition: transform 1s ease-in-out;
 }
-img:hover {
+img.avatar:hover {
     transform: scale(0.9,0.9);
     /*transform: rotate(360deg);*/
     /*transform: translateY(10px);*/
@@ -90,6 +90,9 @@ img.avatar{
     image-rendering: -webkit-optimize-contrast;
     -ms-interpolation-mode: nearest-neighbor;
     image-rendering: pixelated;
+}
+img.type{
+    width: 10%;
 }
 
 .balls {
