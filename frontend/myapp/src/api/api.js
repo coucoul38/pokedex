@@ -40,6 +40,20 @@ export const getCatched = async () => {
     const catched = await response.json()
     return catched
 };
+export const getCatchedByType = async (type) => {
+    const response = await fetch(
+        'http://localhost:4444/unlocked/type?type='+type, {
+            method: 'POST', 
+            headers: {
+                'Accept': 'application/json', 
+                'Content-Type':'application/json'
+            }
+        }
+    )
+    const pokemons = await response.json()
+    return pokemons
+};
+
 export function addToPokedex(no){
     fetch(
         'http://localhost:4444/unlocked/insert?no='+no, {

@@ -25,7 +25,6 @@ function Pokedex(){
       .then(result => setPokemons(result))
       .catch(error=>console.error("Erreur avec notre API :",error.message));
     }
-    
   });
 
   return (

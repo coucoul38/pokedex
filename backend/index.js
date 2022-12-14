@@ -143,6 +143,27 @@ app.get("/unlocked/list", function (req, res) {
     });
 });
 
+//Get unlockeds by type
+app.post("/unlocked/list/type", function (req, res) {
+  const dbConnect = dbo.getDb();
+  var sortOrder = { no : 1 };
+  const type= req.query.type;
+  dbConnect
+    .collection("unlocked")
+    .find({ $or: [ { type1: type }, { type2: type } ] }) // permet de filtrer les résultats
+    /*.limit(50) // pourrait permettre de limiter le nombre de résultats */
+    .sort(sortOrder)
+    .toArray(function (err, result){
+      if (err) {
+        console.log("Couldnt fetch pokemons");
+        res.status(400).send("Error fetching pokemons!");
+      } else {
+        //console.log("Pokemons fetched");
+        res.json(result);
+      }
+    });
+});
+
 //----------Move a pokemon from the Pokedex to unlocked----------
 app.post('/unlocked/insert', (req, res) => {
   const dbConnect = dbo.getDb()

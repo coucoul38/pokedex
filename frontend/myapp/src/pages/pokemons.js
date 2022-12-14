@@ -1,6 +1,6 @@
 import { Route } from 'react-router';
 import {Link} from 'react-router-dom';
-import {getCatched, release} from '../api/api';
+import {getCatched, release, getCatchedByType} from '../api/api';
 import {useState,useEffect} from 'react';
 
 <Route path="pokedex/pokemons" />
@@ -11,12 +11,21 @@ import {useState,useEffect} from 'react';
 
 function Pokemons(){
   const [ pokemons, setPokemons ] = useState([]);
+  const [ typeSearch, setTypeSearch] = useState('none');
   useEffect(() => {
     // Get the list of pokemons when loading the page
-    const pokemonsFetched = getCatched();
-    pokemonsFetched
+    if(typeSearch==="none"){
+      const pokemonsFetched = getCatched();
+      pokemonsFetched
       .then(result => setPokemons(result))
       .catch(error=>console.error("Erreur avec notre API :",error.message));
+    } else {
+      //Mmh bonus puntos
+      const pokemonsFetched = getCatchedByType(typeSearch);
+      pokemonsFetched
+      .then(result => setPokemons(result))
+      .catch(error=>console.error("Erreur avec notre API :",error.message));
+    }
   });
 
   return (
@@ -32,6 +41,31 @@ function Pokemons(){
             </ul>
         </nav>
       </div>
+      <nav>
+            <ul>
+              <div className='orderType'>
+                <li><button onClick={()=>setTypeSearch("normal")}>     <img src='./img/normal.png' alt='NORMAL'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("fire")}>       <img src='./img/fire.png' alt='FIRE'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("fighting")}>   <img src='./img/fighting.png' alt='FIGHTING'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("water")}>      <img src='./img/water.png' alt='WATER'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("flying")}>     <img src='./img/flying.png' alt='FLYING'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("grass")}>      <img src='./img/grass.png' alt='GRASS'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("poison")}>     <img src='./img/poison.png' alt='POISON'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("electric")}>   <img src='./img/electric.png' alt='ELECTRIC'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("ground")}>     <img src='./img/ground.png' alt='GROUND'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("psychic")}>    <img src='./img/psychic.png' alt='PSYCHIC'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("rock")}>       <img src='./img/rock.png' alt='ROCK'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("ice")}>        <img src='./img/ice.png' alt='ICE'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("bug")}>        <img src='./img/bug.png' alt='BUG'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("ghost")}>      <img src='./img/ghost.png' alt='GHOST'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("dark")}>       <img src='./img/dark.png' alt='DARK'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("steel")}>      <img src='./img/steel.png' alt='STEEL'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("fairy")}>      <img src='./img/fairy.png' alt='FAIRY'></img></button></li>
+                <li><button onClick={()=>setTypeSearch("none")}>       <img src='./img/trash.png' alt='RESET'></img></button></li>
+              </div>
+            </ul>
+        </nav>
+        <h2 className='center'>Type selected: {typeSearch}</h2>
       <div className='row'>
         {
           
