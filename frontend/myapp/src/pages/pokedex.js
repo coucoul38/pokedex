@@ -15,12 +15,17 @@ function Pokedex(){
     // Get the list of pokemons when loading the page
     if(typeSearch==="none"){
       const pokemonsFetched = getAll();
-    } else {
-      const pokemonsFetched = getAllByType(typeSearch);
-    }
-    pokemonsFetched
+      pokemonsFetched
       .then(result => setPokemons(result))
       .catch(error=>console.error("Erreur avec notre API :",error.message));
+    } else {
+      //Mmh bonus puntos
+      const pokemonsFetched = getAllByType(typeSearch);
+      pokemonsFetched
+      .then(result => setPokemons(result))
+      .catch(error=>console.error("Erreur avec notre API :",error.message));
+    }
+    
   });
 
   return (
@@ -60,7 +65,7 @@ function Pokedex(){
               </div>
             </ul>
         </nav>
-        <h2>Type selected: {typeSearch}</h2>
+        <h2 className='center'>Type selected: {typeSearch}</h2>
       <div className='row'>
         {
           pokemons.map((pokemon,key) =>{
