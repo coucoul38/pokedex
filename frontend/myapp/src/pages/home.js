@@ -7,7 +7,7 @@ function Home(){
     <div className='pixel'>
         <h1 className='center title'>Home</h1>
         <nav>
-            <ul>
+            <ul className="ul-nav">
                 <li><Link to="/">Homepage</Link></li>
                 <li><Link to="/pokedex">Pokedex</Link></li>
                 <li><Link to="/unlocked">Unlocked</Link></li>

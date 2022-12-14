@@ -12,10 +12,13 @@ body {
     image-rendering: pixelated;
 }
 
+
+
 .underline{
     text-decoration: underline;
     margin: 2px;
 }
+
 
 .row {
     display: flex;
@@ -23,12 +26,11 @@ body {
     flex-wrap: wrap;
     flex-direction: row;
     background-color: rgba(0, 0, 0, 0.5);
-    width: 80%;
-    margin-left: 10%;
     margin-bottom: 2%;
     padding: 1%;
+    margin-left: 10%;
+    width: 80%;
     border-radius: 1%;
-
 }
 
 .bloc-pokemon {
@@ -62,7 +64,7 @@ body {
     cursor: grab;
 }
 
-ul {
+.ul-nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -91,6 +93,18 @@ li a:hover {
 
 li a:active {
     color: rgb(179, 255, 255);
+}
+
+.orderType{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+img.ordertype{
+    width: 1% !important;
+    background-color: aqua;
 }
 
 .poke-button {

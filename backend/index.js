@@ -42,7 +42,7 @@ app.get("/pokemons/list", function (req, res) {
     });
 });
 
-//Get pokemons from db
+//Get pokemons by type
 app.post("/pokemons/list/type", function (req, res) {
   const dbConnect = dbo.getDb();
   var sortOrder = { no : 1 };

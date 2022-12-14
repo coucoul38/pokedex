@@ -12,6 +12,21 @@ export const getAll = async () => {
     return pokemons
 };
 
+export const getAllByType = async (type) => {
+    const response = await fetch(
+        'http://localhost:4444/pokemons/list/type?type='+type, {
+            method: 'POST', 
+            headers: {
+                'Accept': 'application/json', 
+                'Content-Type':'application/json'
+            }
+        }
+    )
+    const pokemons = await response.json()
+    return pokemons
+};
+
+
 export const getCatched = async () => {
     const response = await fetch(
         'http://localhost:4444/unlocked/list', {
